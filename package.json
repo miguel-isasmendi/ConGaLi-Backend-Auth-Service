@@ -1,0 +1,59 @@
+{
+  "version": "0.0.1",
+  "description": "Auth backend for ConGaLi",
+  "author": "Miguel Darío Isasmendi",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "node --inspect app.js --environment dev",
+    "app": "node app.js",
+    "start": "node app.js",
+    "lint_test": "eslint-mocha --eslint-args='--color --ext .js test' --mocha-args='--recursive test'",
+    "lint": "eslint --color --ext .js src",
+    "check-coverage": "istanbul check-coverage ./coverage/coverage.json",
+    "coverage": "istanbul cover ./node_modules/mocha/bin/_mocha -- ./test/unit/spec --recursive",
+    "unit": "mocha ./test/unit/spec --recursive",
+    "test": "npm run unit && npm run coverage"
+  },
+  "pre-push": [
+    "lint",
+    "unit"
+  ],
+  "devDependencies": {
+    "chai": "3.5.0",
+    "eslint": "3.19.0",
+    "eslint-config-standard": "10.2.1",
+    "eslint-friendly-formatter": "2.0.7",
+    "eslint-mocha": "0.2.2",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-node": "4.2.2",
+    "eslint-plugin-promise": "3.5.0",
+    "eslint-plugin-standard": "3.0.1",
+    "istanbul": "0.4.5",
+    "mocha": "3.3.0",
+    "pre-push": "0.1.1",
+    "sinon": "2.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miguel-isasmendi/ConGaLi-Backend-Auth.git"
+  },
+  "keywords": [
+    "JWT",
+    "game",
+    "node.js",
+    "real-time"
+  ],
+  "bugs": {
+    "url": "https://github.com/miguel-isasmendi/ConGaLi-Backend-Auth/issues"
+  },
+  "homepage": "https://github.com/miguel-isasmendi/ConGaLi-Backend-Auth#readme",
+  "dependencies": {
+    "commander": "2.9.0",
+    "log4js": "1.1.1",
+    "restify-jwt": "0.4.0"
+  },
+  "engines": {
+    "node": ">= 7.0.0"
+  }
+}
